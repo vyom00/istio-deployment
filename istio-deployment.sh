@@ -28,7 +28,7 @@ helm template install/kubernetes/helm/istio --name istio --namespace istio-syste
 
 if [ $? -eq 0 ]; then
  echo "CRD's installed"
-  else echo "Error"
+  else echo "Error-CRDs installation"
 fi
 echo "Verifying that all 53 Istio CRDs were committed to the Kubernetes api-server"
 
@@ -36,7 +36,7 @@ kubectl get crds | grep 'istio.io\|certmanager.k8s.io' | wc -l
 
 if [ $? -eq 0 ]; then
         echo "all Istio CRDs are commited"
-        else echo" Error"
+        else echo" Error-CRDs not commited"
 fi
 
 
